@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="mystyles.css">
+
+    <title>Payment</title>
+
+    <!-- 
+ <link rel="stylesheet" href="style.css">  -->
+
+    <script>
+        function validate() {
+            let p_Visa_Number = document.forms["Payment"]["Visa Number"].value;
+            let p_cvv = document.forms["Payment"]["Card CVV"].value;
+            
+
+
+            if (document.getElementById('Visa').checked) {
+                if (p_Visa_Number == "") {
+                    alert("Please Enter Visa Number!");
+                    return false;
+                }
+
+                if (p_cvv == "") {
+                    alert("Please Enter Card CVV!");
+                    return false;
+                }
+
+
+
+
+            }
+
+        }
+    </script>
+</head>
+
+<body style="background-image: url('cust.jpg'); height: 100%; background-repeat: no-repeat; background-size: cover;">
+
+    <form name="Payment" action="payment.php" onsubmit="return validate()" method="post">
+        <p> Select Payment Method</p>
+        <input type="radio" id="Cash" name="pay" value="Cash"> <label for="Cash">Cash</label><br><input type="radio" id="Visa" name="pay" value="Visa"><label for="Visa">Visa</label><br>
+
+        <label for="Visa Number">Enter Visa Number:</label><br>
+        <input type="text" id="Visa Number" name="Visa Number"><br>
+        <label for="Card CVV">CVV</label><br>
+        <input type="text" id="Card CVV" name="Card CVV"><br><br>
+        <button type="submit" name="signin">Pay</button><br><br>
+        <div id="disp">
+        </div>
+    </form>
+
+
+
+</body>
+
+</html>
